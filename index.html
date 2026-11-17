@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#f5f7fb">
   <title>ClearCSV — Clean your data</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="csv-cleanup.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -98,7 +99,7 @@
                     <strong>Removed empty rows</strong>
                     <span id="removedCount">0</span>
                   </div>
-                  <p class="removed-empty-message" id="removedEmptyMessage" hidden>No empty rows were removed.</p>
+                  <p class="removed-empty-message" id="removedEmptyMessage" hidden>No rows were removed.</p>
                   <table id="removedTable" hidden>
                     <thead id="removedTableHead"></thead>
                     <tbody id="removedTableBody"></tbody>
@@ -161,9 +162,31 @@
     <div class="dialog-content">
       <div class="dialog-eyebrow">REVIEW CLEANUP</div>
       <h2 id="cleanupDialogTitle">Rows to be removed</h2>
-      <p id="cleanupDialogDescription">Review the empty rows below before confirming cleanup.</p>
+      <p id="cleanupDialogDescription">Review suggested rows below and uncheck any rows you want to keep.</p>
+      <section class="duplicate-column-options" id="duplicateColumnOptions" hidden>
+        <div class="duplicate-column-heading">
+          <div>
+            <strong>Columns used to identify duplicates</strong>
+            <small>Uncheck columns that may differ, such as ID. Detected ID columns start excluded.</small>
+          </div>
+          <label><input id="selectAllCompareColumns" type="checkbox" checked> Compare all</label>
+        </div>
+        <div class="duplicate-column-list" id="duplicateColumnList"></div>
+      </section>
+      <section class="duplicate-groups-preview" id="duplicateGroupsPreview" hidden>
+        <div class="duplicate-groups-heading">
+          <strong>Potential duplicate data</strong>
+          <small>Rows are grouped by their matching values. The first row is kept by default.</small>
+        </div>
+        <div class="duplicate-groups-table-wrap">
+          <table>
+            <thead id="duplicateGroupsTableHead"></thead>
+            <tbody id="duplicateGroupsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
       <div class="dialog-removed-preview">
-        <p class="dialog-empty-message" id="dialogEmptyMessage" hidden>No empty rows will be removed. Whitespace will still be trimmed.</p>
+        <p class="dialog-empty-message" id="dialogEmptyMessage" hidden>No rows will be removed.</p>
         <div class="dialog-table-wrap">
           <table id="dialogRemovedTable" hidden>
             <thead id="dialogRemovedTableHead"></thead>

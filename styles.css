@@ -104,15 +104,32 @@ tbody tr:nth-child(even) { background: #fcfdfd; }
 .removed-heading span { padding: 3px 6px; border-radius: 4px; color: #a36c41; background: #fff3e7; font-size: 9px; }
 .removed-empty-message { margin: 0; color: #9aa4b1; font-size: 10px; }
 .preview-footer { min-height: 36px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eff1f5; color: #a3acb7; font-size: 9px; }
-.cleanup-dialog { width: min(620px, calc(100vw - 32px)); max-width: 620px; max-height: min(82vh, 720px); margin: auto; padding: 0; overflow: hidden; border: 1px solid #e6ebf0; border-radius: 12px; color: #344154; background: #fff; box-shadow: 0 24px 70px rgba(25, 40, 60, .2); }
+.cleanup-dialog { width: min(620px, calc(100vw - 32px)); max-width: 620px; min-height: min(65vh, 560px); max-height: min(90vh, 900px); margin: auto; padding: 0; overflow-x: hidden; overflow-y: auto; border: 1px solid #e6ebf0; border-radius: 12px; color: #344154; background: #fff; box-shadow: 0 24px 70px rgba(25, 40, 60, .2); }
+.cleanup-dialog[open] { display: flex; flex-direction: column; }
 .cleanup-dialog::backdrop { background: rgba(25, 35, 49, .42); backdrop-filter: blur(2px); }
-.dialog-content { padding: 24px; }
+.dialog-content { flex: 1 1 auto; padding: 24px; }
 .dialog-eyebrow { color: #4a9b79; font-size: 9px; font-weight: 700; letter-spacing: 1.2px; }
 .dialog-content h2 { margin: 8px 0 5px; color: #263346; font: 700 19px Manrope, sans-serif; }
 .dialog-content > p { margin: 0; color: #8691a0; font-size: 12px; line-height: 1.5; }
-.dialog-removed-preview { margin-top: 17px; overflow: hidden; border: 1px solid #edf0f4; border-radius: 7px; }
+.duplicate-column-options { margin-top: 16px; padding: 12px; border: 1px solid #edf0f4; border-radius: 7px; background: #fbfcfd; }
+.duplicate-column-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.duplicate-column-heading strong, .duplicate-column-heading small { display: block; }
+.duplicate-column-heading strong { color: #596679; font-size: 10px; }
+.duplicate-column-heading small { margin-top: 4px; color: #98a2af; font-size: 9px; }
+.duplicate-column-heading label, .duplicate-column-item { display: flex; align-items: center; gap: 6px; color: #667487; font-size: 9px; white-space: nowrap; }
+.duplicate-column-heading input, .duplicate-column-item input { accent-color: #32966f; }
+.duplicate-column-list { display: flex; flex-wrap: wrap; gap: 7px; max-height: 82px; margin-top: 10px; overflow: auto; }
+.duplicate-column-item { padding: 5px 7px; border: 1px solid #e8edf1; border-radius: 5px; background: #fff; }
+.duplicate-groups-preview { margin-top: 14px; border: 1px solid #e8edf1; border-radius: 7px; }
+.duplicate-groups-heading { padding: 10px 12px; border-bottom: 1px solid #edf0f4; }
+.duplicate-groups-heading strong, .duplicate-groups-heading small { display: block; }
+.duplicate-groups-heading strong { color: #596679; font-size: 10px; }
+.duplicate-groups-heading small { margin-top: 4px; color: #98a2af; font-size: 9px; }
+.duplicate-groups-table-wrap { overflow: visible; }
+.duplicate-groups-table-wrap table { min-width: 100%; }
+.dialog-removed-preview { margin-top: 17px; border: 1px solid #edf0f4; border-radius: 7px; }
 .dialog-empty-message { margin: 0; padding: 18px; color: #8994a2; font-size: 11px; }
-.dialog-table-wrap { max-height: 38vh; overflow: auto; }
+.dialog-table-wrap { overflow: visible; }
 .dialog-table-wrap table { min-width: 100%; }
 .row-select-checkbox { width: 14px; height: 14px; margin: 0; accent-color: #32966f; cursor: pointer; vertical-align: middle; }
 .dialog-footer { min-height: 34px; display: flex; justify-content: space-between; align-items: center; color: #929dac; font-size: 9px; }
